@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Color Dynamic</title>
+
+</head>
+<body>
+<div tabindex="-1" class="sideBar" data-val="1">
+    bodyyyyyy
+</div>
+<div tabindex="-1" class="sideBar" data-val="2">
+    bodyyyyyy
+</div>
+<div class="mainBar"> 
+<input type="color" name="colorPicker" id="colorPicker" title="Choose Color" />
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+var colorPick = $('#colorPicker');
+var styleElt =  '<style></style>';
+var selectedVal;
+colorPick.on('change', function(){
+    selectedVal = $(this).val();
+});
+$(".sideBar").on('click', function(){
+    console.log($(this).attr('data-val'));
+    $('[data-val="'+$(this).attr('data-val')+'"]').css("background-color", selectedVal);
+});
+</script>
+</body>
+</html>
